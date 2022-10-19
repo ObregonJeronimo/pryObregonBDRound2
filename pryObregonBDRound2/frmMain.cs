@@ -48,12 +48,13 @@ namespace pryObregonBDRound2
             catch (Exception mensajeError)
             {
                 lblEstado.Text = mensajeError.Message;
-              //  lblEstado.ForeColor = Color.Red;
-                statusStrip1.BackColor = Color.Red;
-                //throw;
+
+                ssp.BackColor = Color.Red;
+                //cambia color a rojo si no se conecta
             }
 
         }
+
 
     }
 }
