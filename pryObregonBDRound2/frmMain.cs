@@ -13,15 +13,13 @@ namespace pryObregonBDRound2
 {
     public partial class frmMain : Form
     {
-        //declarando var y obj globales
+        //declaracion de variables y objetos globales
+        //utilizaremos las variables publicas para usarlas en todo el proyecto
+        public OleDbConnection conexionBase;
+        public OleDbConnection queQuieroDeLaBase;
+        public OleDbConnection lectorDeConsultas;
+        public string varRutaBaseDeDatos = "DEPORTE.accdb";
 
-        OleDbConnection conexionBase;
-        OleDbCommand queQuieroDeLaBase;
-        OleDbDataReader lectorDeConsultas;
-
-        string varRutaDeBaseDeDatos =
-            "D:\\Escritorio\\pryObregonBDRound2\\pryObregonBDRound2\\DEPORTE.accdb";
-       
         public frmMain()
         {
             InitializeComponent();
@@ -33,28 +31,45 @@ namespace pryObregonBDRound2
             try
             {
                 lblFechaActual.Text = DateTime.Now.ToString();
-
-                conexionBase = new OleDbConnection(
-                    "Provider=Microsoft." +
-                    "ACE.OLEDB.12.0;Data Source =" +
-                    varRutaDeBaseDeDatos);
-
+                conexionBase = new OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0;Data Source=" + varRutaBaseDeDatos);
                 conexionBase.Open();
-
-                lblEstado.Text = "Conectado: " + conexionBase.ConnectionString;
-                lblEstado.ForeColor = Color.Green;
-
+                lblEstado.Text = "Conectado:" + conexionBase.ConnectionString;
+                ssp.BackColor = Color.GreenYellow;
             }
-            catch (Exception mensajeError)
+            catch (Exception mensajito)
             {
-                lblEstado.Text = mensajeError.Message;
-
+                lblEstado.Text = mensajito.Message;
                 ssp.BackColor = Color.Red;
-                //cambia color a rojo si no se conecta
+
+
+                // throw;
             }
+
 
         }
 
+        private void itemDeportista_Click(object sender, EventArgs e)
+        {
+            frmRegistroDeportista frmRD = new frmRegistroDeportista();
+            frmRD.ShowDialog();
+        }
 
+        private void itemEntrenador_Click(object sender, EventArgs e)
+        {
+            frmRegistroEntrenador frmRE = new frmRegistroEntrenador();
+            frmRE.ShowDialog();
+        }
+
+        private void itemDeportista1_Click(object sender, EventArgs e)
+        {
+            frmConsultaRegistroDeportista frmCRD = new frmConsultaRegistroDeportista();
+            frmCRD.ShowDialog();
+        }
+
+        private void itemEntrenador1_Click(object sender, EventArgs e)
+        {
+            frmConsultaRegistroEntrenador frmCRE = new frmConsultaRegistroEntrenador();
+            frmCRE.ShowDialog();
+        }
     }
 }

@@ -29,8 +29,9 @@
         private void InitializeComponent()
         {
             this.ssp = new System.Windows.Forms.StatusStrip();
-            this.toolColorRojo = new System.Windows.Forms.ToolStripStatusLabel();
             this.lblEstado = new System.Windows.Forms.ToolStripStatusLabel();
+            this.toolColorRojo = new System.Windows.Forms.ToolStripStatusLabel();
+            this.lblFechaActual = new System.Windows.Forms.ToolStripStatusLabel();
             this.ms1 = new System.Windows.Forms.MenuStrip();
             this.toolRegistro = new System.Windows.Forms.ToolStripMenuItem();
             this.itemDeportista = new System.Windows.Forms.ToolStripMenuItem();
@@ -38,7 +39,6 @@
             this.toolConsulta = new System.Windows.Forms.ToolStripMenuItem();
             this.itemDeportista1 = new System.Windows.Forms.ToolStripMenuItem();
             this.itemEntrenador1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.lblFechaActual = new System.Windows.Forms.ToolStripStatusLabel();
             this.ssp.SuspendLayout();
             this.ms1.SuspendLayout();
             this.SuspendLayout();
@@ -55,16 +55,21 @@
             this.ssp.TabIndex = 0;
             this.ssp.Text = "statusStrip1";
             // 
+            // lblEstado
+            // 
+            this.lblEstado.Name = "lblEstado";
+            this.lblEstado.Size = new System.Drawing.Size(0, 17);
+            // 
             // toolColorRojo
             // 
             this.toolColorRojo.Name = "toolColorRojo";
             this.toolColorRojo.Size = new System.Drawing.Size(12, 17);
             this.toolColorRojo.Text = "-";
             // 
-            // lblEstado
+            // lblFechaActual
             // 
-            this.lblEstado.Name = "lblEstado";
-            this.lblEstado.Size = new System.Drawing.Size(0, 17);
+            this.lblFechaActual.Name = "lblFechaActual";
+            this.lblFechaActual.Size = new System.Drawing.Size(0, 17);
             // 
             // ms1
             // 
@@ -91,12 +96,14 @@
             this.itemDeportista.Name = "itemDeportista";
             this.itemDeportista.Size = new System.Drawing.Size(180, 22);
             this.itemDeportista.Text = "Deportista";
+            this.itemDeportista.Click += new System.EventHandler(this.itemDeportista_Click);
             // 
             // itemEntrenador
             // 
             this.itemEntrenador.Name = "itemEntrenador";
             this.itemEntrenador.Size = new System.Drawing.Size(180, 22);
             this.itemEntrenador.Text = "Entrenador";
+            this.itemEntrenador.Click += new System.EventHandler(this.itemEntrenador_Click);
             // 
             // toolConsulta
             // 
@@ -112,17 +119,14 @@
             this.itemDeportista1.Name = "itemDeportista1";
             this.itemDeportista1.Size = new System.Drawing.Size(180, 22);
             this.itemDeportista1.Text = "Deportista";
+            this.itemDeportista1.Click += new System.EventHandler(this.itemDeportista1_Click);
             // 
             // itemEntrenador1
             // 
             this.itemEntrenador1.Name = "itemEntrenador1";
             this.itemEntrenador1.Size = new System.Drawing.Size(180, 22);
             this.itemEntrenador1.Text = "Entrenador";
-            // 
-            // lblFechaActual
-            // 
-            this.lblFechaActual.Name = "lblFechaActual";
-            this.lblFechaActual.Size = new System.Drawing.Size(0, 17);
+            this.itemEntrenador1.Click += new System.EventHandler(this.itemEntrenador1_Click);
             // 
             // frmMain
             // 
